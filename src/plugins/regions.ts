@@ -107,6 +107,7 @@ class SingleRegion extends EventEmitter<RegionEvents> {
   private setPart() {
     const isMarker = this.start === this.end
     this.element.setAttribute('part', `${isMarker ? 'marker' : 'region'}-${this.id}`)
+    this.element.setAttribute('id', `${isMarker ? 'marker' : 'region'}-${this.id}`)
   }
 
   private addResizeHandles(element: HTMLElement) {
