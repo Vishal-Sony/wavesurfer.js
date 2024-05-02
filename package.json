@@ -1,8 +1,8 @@
 {
-  "name": "wavesurfer.js",
-  "version": "7.7.7",
+  "name": "@hamza224/wavesurfer.js",
+  "version": "7.7.11",
   "license": "BSD-3-Clause",
-  "author": "katspaugh",
+  "author": "hamza",
   "description": "Audio waveform player",
   "homepage": "https://wavesurfer.xyz",
   "keywords": [
