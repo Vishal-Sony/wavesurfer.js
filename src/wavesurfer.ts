@@ -266,6 +266,15 @@ class WaveSurfer extends Player<WaveSurferEvents> {
           this.emit('click', relativeX, relativeY)
         }
       }),
+       // Right click
+    this.renderer.on('contextmenu', (relativeX, relativeY, event: MouseEvent) => {
+      event.preventDefault();  // Prevent default context menu
+      if (this.options.interact && event.button === 2) {  // Right-click
+        this.seekTo(relativeX)
+        this.emit('interaction', relativeX * this.getDuration())
+        this.emit('click', relativeX, relativeY)  // Trigger same event as left-click
+      }
+    }),
 
       // Double click
       this.renderer.on('dblclick', (relativeX, relativeY) => {

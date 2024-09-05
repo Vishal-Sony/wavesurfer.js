@@ -4,6 +4,7 @@ import type { WaveSurferOptions } from './wavesurfer.js'
 
 type RendererEvents = {
   click: [relativeX: number, relativeY: number]
+  contextmenu: [relativeX: number, relativeY: number, event: MouseEvent]
   dblclick: [relativeX: number, relativeY: number]
   drag: [relativeX: number]
   dragstart: [relativeX: number]
@@ -83,6 +84,12 @@ class Renderer extends EventEmitter<RendererEvents> {
     this.wrapper.addEventListener('click', (e) => {
       const [x, y] = getClickPosition(e)
       this.emit('click', x, y)
+    })
+
+    // Add a click listener
+    this.wrapper.addEventListener('contextmenu', (e) => {
+      const [x, y] = getClickPosition(e)
+      this.emit('contextmenu', x, y, e)
     })
 
     // Add a double click listener
